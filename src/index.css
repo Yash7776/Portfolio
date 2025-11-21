@@ -379,8 +379,9 @@ header {
 /* Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 35px;
+  align-items: stretch;
 }
 
 .project-card {
@@ -390,6 +391,10 @@ header {
   box-shadow: var(--shadow);
   transition: var(--transition);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 580px;
 }
 
 .project-card::before {
@@ -408,9 +413,11 @@ header {
 }
 
 .project-img {
-  height: 220px;
+  height: 240px;
+  width: 100%;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
 
 .project-img img {
@@ -425,18 +432,27 @@ header {
 }
 
 .project-info {
-  padding: 25px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .project-info h3 {
   margin-bottom: 15px;
   font-size: 1.5rem;
   color: var(--dark);
+  min-height: 40px;
+  line-height: 1.3;
 }
 
 .project-info p {
   color: var(--text);
   margin-bottom: 20px;
+  line-height: 1.6;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  min-height: 100px;
 }
 
 .project-tech {
@@ -444,6 +460,8 @@ header {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
+  min-height: 70px;
+  align-content: flex-start;
 }
 
 .tech {
@@ -453,11 +471,14 @@ header {
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 500;
+  height: fit-content;
 }
 
 .project-links {
   display: flex;
   gap: 20px;
+  margin-top: auto;
+  padding-top: 10px;
 }
 
 .project-links a {
@@ -476,9 +497,8 @@ header {
 
 /* Education Section */
 .education-timeline {
-  max-width: 900px;
-  margin: 0 auto;
   position: relative;
+  padding-left: 0;
 }
 
 .education-timeline::before {
@@ -486,21 +506,37 @@ header {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 30px;
-  width: 4px;
+  left: 35px;
+  width: 3px;
   background: linear-gradient(to bottom, var(--primary), var(--accent1));
   border-radius: 2px;
 }
 
 .education-item {
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
   position: relative;
-  animation: slideInRight 0.8s ease-out both;
+  animation: fadeInUp 0.6s ease-out both;
 }
 
-.education-item:nth-child(even) {
-  animation: slideInLeft 0.8s ease-out both;
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
+.education-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.education-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.education-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.education-item:nth-child(4) {
+  animation-delay: 0.4s;
 }
 
 @keyframes slideInRight {
@@ -530,48 +566,94 @@ header {
 .education-icon {
   width: 70px;
   height: 70px;
+  min-width: 70px;
   background: linear-gradient(45deg, var(--primary), var(--accent1));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.8rem;
-  margin-right: 30px;
-  z-index: 1;
-  box-shadow: var(--shadow);
+  font-size: 1.6rem;
+  margin-right: 25px;
+  z-index: 2;
+  box-shadow: 0 5px 20px rgba(108, 99, 255, 0.3);
+  transition: var(--transition);
+  position: relative;
+}
+
+.education-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.education-item:hover .education-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.education-item:hover .education-icon::after {
+  opacity: 0.3;
+  transform: scale(1.3);
 }
 
 .education-content {
   flex: 1;
-  background-color: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
+  background-color: #f8fafc;
+  padding: 22px 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
   position: relative;
+  transition: var(--transition);
+  border-left: 3px solid var(--primary);
 }
 
-.education-content::before {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: -10px;
-  width: 20px;
-  height: 20px;
-  background: white;
-  transform: rotate(45deg);
+.education-content:hover {
+  background-color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateX(5px);
 }
 
 .education-content h3 {
   margin-bottom: 8px;
   color: var(--dark);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .education-date {
   color: var(--primary);
-  font-size: 1rem;
-  margin-bottom: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
   font-weight: 600;
+  display: inline-block;
+  background: rgba(108, 99, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.education-content p {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.education-content ul {
+  list-style: disc;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.education-content ul li {
+  margin-bottom: 8px;
 }
 
 /* Contact Section */
@@ -817,24 +899,62 @@ footer {
 
 .three-col-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 30px;
+  align-items: start;
+}
+
+@media (max-width: 1200px) {
+  .three-col-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .three-col-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
 .col-box {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  height: 100%;
+  transition: var(--transition);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent1)) 1;
+}
+
+.col-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .col-title {
   text-align: center;
-  font-weight: bold;
-  margin-bottom: 15px;
-  font-size: 22px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  font-size: 1.6rem;
+  color: var(--dark);
+  padding-bottom: 15px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
+  position: relative;
+}
+
+.col-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent1), var(--primary));
+  border-radius: 3px;
 }
 
 
