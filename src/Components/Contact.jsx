@@ -14,7 +14,7 @@ const Contact = () => {
                         </div>
                         <div class="contact-text">
                             <h3>Location</h3>
-                            <p>123 Developer Street, Tech City, TC 10101</p>
+                            <p>Chalisgaon,Maharashtra,India</p>
                         </div>
                     </div>
                     
@@ -24,7 +24,7 @@ const Contact = () => {
                         </div>
                         <div class="contact-text">
                             <h3>Email</h3>
-                            <p>Yash Pathak.developer@example.com</p>
+                            <p>yashpathak7776@gmail.com</p>
                         </div>
                     </div>
                     
@@ -34,15 +34,15 @@ const Contact = () => {
                         </div>
                         <div class="contact-text">
                             <h3>Phone</h3>
-                            <p>+1 (555) 123-4567</p>
+                            <p>+917776087318</p>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/Yash7776" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/yashpathak07" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="/" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="/" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
